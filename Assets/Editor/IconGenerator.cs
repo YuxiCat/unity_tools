@@ -612,7 +612,12 @@ public class IconGenerator : EditorWindow
 
 	private void exportIcon(int i)
 	{
-		string name = unityGameObjects[i].name;
+        if (unityGameObjects.Count < 1)
+        {
+            Debug.Log("Please drag a prefab to registration area.");
+            return;
+        }
+        string name = unityGameObjects[i].name;
 		Rect rect = new Rect (0, 0, imageWidth, imageHeight);
 
 		// create screenshot objects if needed
